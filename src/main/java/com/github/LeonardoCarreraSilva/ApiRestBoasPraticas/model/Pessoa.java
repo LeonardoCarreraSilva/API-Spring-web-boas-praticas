@@ -17,6 +17,16 @@ public class Pessoa {
 	
 	private char sexo;
 
+	public Pessoa(String nome, String sobrenome, char sexo) {
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.sexo = sexo;
+	}
+	
+	public Pessoa() {
+		
+	}
+
 	public Long getId() {
 		return id;
 	}

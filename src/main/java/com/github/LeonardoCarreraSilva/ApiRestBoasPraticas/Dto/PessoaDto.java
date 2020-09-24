@@ -3,6 +3,8 @@ package com.github.LeonardoCarreraSilva.ApiRestBoasPraticas.Dto;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Page;
+
 import com.github.LeonardoCarreraSilva.ApiRestBoasPraticas.model.Pessoa;
 
 public class PessoaDto {
@@ -40,8 +42,8 @@ public class PessoaDto {
 		return sexo;
 	}
 	
-	public static List<PessoaDto> converter(List<Pessoa> pessoas){
-		return pessoas.stream().map(PessoaDto::new).collect(Collectors.toList());
+	public static Page<PessoaDto> converter(Page<Pessoa> pessoas){
+		return pessoas.map(PessoaDto::new);
 	}
 
 }

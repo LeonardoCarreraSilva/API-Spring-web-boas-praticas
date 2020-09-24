@@ -30,6 +30,8 @@ public class InstrucaoController {
 				+ "\n"
 				+ "4- http://localhost:8080/pessoa/2 com o metodo PUT com o mesmo json alterando a inforções que queira"
 				+ "\n"
-				+ "5- http://localhost:8080/pessoa/2 com o metodo DELETE para excluir a pessoa com id 2";	
+				+ "5- http://localhost:8080/pessoa/2 com o metodo DELETE para excluir a pessoa com id 2"
+				+ "\n"
+				+ "6- http://localhost:8080/pessoa?sort=nome,asc com metodo get para ordenar a paginação pelo nome";	
 	}
 }

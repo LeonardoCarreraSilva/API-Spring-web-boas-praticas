@@ -9,13 +9,13 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -56,16 +56,17 @@ public class PessoaController {
 	
 	@PostMapping
 	@Transactional
-	public ResponseEntity<PessoaDto> salvar(@RequestBody @Valid FormPessoa formPessoa,
+	public ResponseEntity<PessoaDto> salvar (@RequestBody @Valid FormPessoa formPessoa,
 			UriComponentsBuilder uriBuilder){
 		Pessoa pessoa = formPessoa.converter();
 		pessoaRepository.save(pessoa);
 		
 		URI uri = uriBuilder.path("/pessoa/{id}").buildAndExpand(pessoa.getId()).toUri();
+		
 		return ResponseEntity.created(uri).body(new PessoaDto(pessoa));
 	}
 	
-	@PutMapping("/{id}")
+	@PutMapping(value = "/{id}")
 	@Transactional
 	public ResponseEntity<PessoaDto> atualizarPessoa(@PathVariable Long id, @RequestBody @Valid FormPessoa form){
 		Optional<Pessoa> optional = pessoaRepository.findById(id);
@@ -73,6 +74,18 @@ public class PessoaController {
 			Pessoa pessoa = form.atualizar(id, pessoaRepository);
 			return ResponseEntity.ok(new PessoaDto(pessoa));
 		}else {
+			return ResponseEntity.notFound().build();
+		}
+	}
+	
+	@DeleteMapping("/{id}")
+	@Transactional
+	public ResponseEntity<?> remover(@PathVariable Long id){
+		Optional<Pessoa> pessoa = pessoaRepository.findById(id);
+		if (pessoa.isPresent()) {
+			pessoaRepository.deleteById(id);
+			return ResponseEntity.ok().build();
+		} else {
 			return ResponseEntity.notFound().build();
 		}
 	}

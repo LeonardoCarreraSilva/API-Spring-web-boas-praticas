@@ -3,21 +3,15 @@ package com.github.LeonardoCarreraSilva.ApiRestBoasPraticas.controller.form;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.dialect.lock.PessimisticEntityLockException;
-
 import com.github.LeonardoCarreraSilva.ApiRestBoasPraticas.model.Pessoa;
 import com.github.LeonardoCarreraSilva.ApiRestBoasPraticas.repository.PessoaRepository;
 
 
 public class FormPessoa {
-	@NotNull
-	@NotEmpty
+	@NotNull @NotEmpty
 	private String nome;
-	@NotNull
-	@NotEmpty
+	@NotNull @NotEmpty
 	private String sobrenome;
-	@NotNull
-	@NotEmpty
 	private char sexo;
 
 	public String getNome() {

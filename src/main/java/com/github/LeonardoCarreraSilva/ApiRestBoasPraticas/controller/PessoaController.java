@@ -7,6 +7,8 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
@@ -37,6 +39,7 @@ public class PessoaController {
 	
 	
 	@GetMapping
+	@Cacheable(value = "listar")
 	public Page<PessoaDto> listar(@RequestParam(required = false) String nome,
 			@PageableDefault(sort = "id", direction = Direction.ASC, size = 10) Pageable paginacao) {
 		if(nome == null) {
@@ -60,6 +63,7 @@ public class PessoaController {
 	
 	@PostMapping
 	@Transactional
+	@CacheEvict(value = "listar", allEntries = true)
 	public ResponseEntity<PessoaDto> salvar (@RequestBody @Valid FormPessoa formPessoa,
 			UriComponentsBuilder uriBuilder){
 		Pessoa pessoa = formPessoa.converter();
@@ -72,6 +76,7 @@ public class PessoaController {
 	
 	@PutMapping(value = "/{id}")
 	@Transactional
+	@CacheEvict(value = "listar", allEntries = true)
 	public ResponseEntity<PessoaDto> atualizarPessoa(@PathVariable Long id, @RequestBody @Valid FormPessoa form){
 		Optional<Pessoa> optional = pessoaRepository.findById(id);
 		if(optional.isPresent()) {
@@ -84,6 +89,7 @@ public class PessoaController {
 	
 	@DeleteMapping("/{id}")
 	@Transactional
+	@CacheEvict(value = "listar", allEntries = true)
 	public ResponseEntity<?> remover(@PathVariable Long id){
 		Optional<Pessoa> pessoa = pessoaRepository.findById(id);
 		if (pessoa.isPresent()) {

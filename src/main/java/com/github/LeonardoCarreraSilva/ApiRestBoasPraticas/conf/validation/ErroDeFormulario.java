@@ -1,4 +1,4 @@
-package com.github.LeonardoCarreraSilva.ApiRestBoasPraticas.conf;
+package com.github.LeonardoCarreraSilva.ApiRestBoasPraticas.conf.validation;
 
 public class ErroDeFormulario {
 	private String campo;

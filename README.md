@@ -1,12 +1,9 @@
-
-
-# Modelo-api-rest-spring-lombok
-
 [![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg)](https://img.shields.io/github/license/LeonardoCarreraSilva/modelo-api-rest-spring-lombok)
 
+# Modelo-api-rest-spring-lombok
 :rocket: Aqui você ira encontrar um modelo de API Spring, com intuito de acelerar sua codificação.
 
-![](https://lh3.googleusercontent.com/pw/AM-JKLU4i7TgfXgpp_FkULjijTcNTIMeVNyWo_npQ1bTUGIJ09-ZEV7T9es0leaKNHs6cAOxnLNHLhgQ4L5MMYAOR3gHp6WScypPfEuPZrQiYDjNuK_lwupGDMTNOTbLUmwb7jJFKjWcm3RE6zwfJEPh0kODpQ=s1336-no?authuser=0)
+
 ## Requisitos 
 
  - Sprong tools ou qualquer IDE Java de sua preferencia
@@ -15,10 +12,38 @@
 ## Passo a Passo
 - Importe o projeto maven
 - Aguarde o maven instalar todas as dependência 
+- Vá ao arquivo ApiRestBoasPraticasApplication.java
+- Execute o mesmo
+- Abra o site http://localhost:8080/swagger-ui.html
 
+## Criando seus endpoints
+Para criarmos um **Endpoint** temos temos que entender a estrutura utilizada!
+Caso tenha que incluir um Endpoint que fará  um insert em uma tabela, teremos que primeiro criar um modelo dessa tabela,
+observe no package **(com.github.LeonardoCarreraSilva.ApiRestBoasPraticas.model)** notamos que como o projeto utiliza Hibernate, ele criara uma tabela no banco de dados, tornando cada uma das nossas propriedades da classe em uma coluna, no nosso caso esse banco esta rodando em memória, para termos acesso basta acessar o link (http://localhost:8080/h2-console).
 
+Após criarmos nosso modelos temos que criar um Repository para o mesmo no package **(com.github.LeonardoCarreraSilva.ApiRestBoasPraticas.repository)** por padrão damos o nome do Modelo + Repository Ex: PessoaRepository.java.
+A estrutura utilizada e muito simples, temos apenas que extender a classe JpaRepository passando como parâmetro dentro dos  <1, 2 >  1= Objeto modelo, 2=tipo do ID, com isso ja temos acesso aos principais métodos de persistência.
+
+Chegamos ao principal, vamos finalmente criar nosso **ENDPOINT**, para isso vamos criar um arquivo Controller no package **(com.github.LeonardoCarreraSilva.ApiRestBoasPraticas.controller)** o padrão de nomenclatura sera o mesmo adotado no Repository, sera de suma importância entendermos os comentários a cima da classe e métodos.
+
+Logo a cima da classe temos dois comentários **@RestController e @RequestMapping(“/pessoa”)**,
+@RestController dirá ao Spring que essa classe contra EndPoints, @RequestMapping(“/pessoa”) denominara o caminho raiz para as requisições nesse caso (localHost:8080/pessoa) sera a base.
+
+Dentro da classe temos que “Autorizar” o nosso Repository instanciando ele e comentando com **@Autowired**.
+
+Criaremos nossos endpoints com métodos, podemos que ter alguns tipos de retorno os mais utilizado são **Page<object> e ResponseEntity<object>**,
+O Page retornara um json ja com paginação, podendo editar como necessário, ja o ResponseEntity retornara um json padrão com as informações.
+
+Temos que comentar nosso método com oque ele representara na nossa requisição (GET, POST, PUT, DELETE) com as notações **(@GetMapping, @PostMapping, @PutMapping, @DeleteMapping)**, podemos ainda passar parâmetros como por exemplo **@GetMapping(“/{id}")**
+Para passarmos um id em específico.
+
+Nos parâmetros do método requerir uma informação em específico utilizando a anotação **@RequestBody** , ou estarmos o id citado a cima com **@PathVariable**.
+
+Com essas informações mais estudos e analise do código exemplo, voce ja tem grande parte do conhecimento necessário para começar a brincar com esse projeto, não se esqueça sempre teste, clone, quebre conserte, entenda oque esta acontecendo, se voce ficou com alguma duvida meu email esta disponível logo a baixo  
+
+![enter image description here](https://lh3.googleusercontent.com/s7IWEJltQKTIlu7rQT6Klm_mFQO5SB6dMVlqQTFimfDIjqwQCCxD1xJiFQKu3cWQxOO0Lear5030E52zyQBACDlcXPzLLxOzzmA3xnlue0wrO6KGHVlDU_0AXLKQtUJVxQAnjz_NK6vHr9ZHHMTKWdYAFLvn5euzMnVD9tNUkywuoGWhYPeIC6fpc3H_ecTaXXx9CAETwwwyzKNdlbFq1wqRls9Q-Mva0psVCFwHOb8xqcez8M_j5kiE0T4pixPuaqPzBgLHyfRt80IH6iyCRYvXarVflfYm8odPKlIaHhpNZGnNx-1POflCo9xZNjE4aKdeTk771W6ILS_R2nQxrNeGSehcGykYNnZeZCT2zh04uBgqgCzHgmZI8o_Kuu0RLmbF14x4lk8R-nq6e4Nh_ae6iWLnVrcLW1OmJgA36cgM_TREJPFBrihb43i3Z1vIUoTKVPIi75sbPp0fDpIRrlNy2SO697N-PhzAKk5EcvBReQ1G16hIA33RxBboBICHZmzoSVym-EytWQSKVElCX_MBLgknQ6VZwiER1JylouH7D6hLCAXwL5rK__1QXTfmACwRvVZt0pBfcKwVWdmvwv8iyCmFncIy5km_qmbDA62itTQ0xst7imJvU_fSRbjASJvOKY5FiN2R8D6XGr-Cd3gJhpifMB2OHbkUBydwhwBxKu-eHltesASTeS7k_SyE-RNJ4de9EyKUVKYpZlwgapnd=w1068-h582-no?authuser=0)
 ## License
-[MIT License](https://github.com/LeonardoCarreraSilva/modelo-api-rest-spring-lombok/blob/master/LICENSE) © [Leonardo Carrera da Silva](https://www.linkedin.com/in/leonardo-carrera-da-silva)
+[MIT License](https://github.com/LeonardoCarreraSilva/modelo-api-rest-spring-lombok/blob/master/LICENSE) © [Leonardo Carrera da Silva](https://www.linkedin.com/in/leonardo-carrera-da-silva) leonardosilva.ads@hotmail.com
 
 
 

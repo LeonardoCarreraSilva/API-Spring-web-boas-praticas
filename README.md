@@ -41,7 +41,7 @@ Nos parâmetros do método requerir uma informação em específico utilizando a
 
 Com essas informações mais estudos e analise do código exemplo, voce ja tem grande parte do conhecimento necessário para começar a brincar com esse projeto, não se esqueça sempre teste, clone, quebre conserte, entenda oque esta acontecendo, se voce ficou com alguma duvida meu email esta disponível logo a baixo  
 
-![enter image description here](https://lh3.googleusercontent.com/s7IWEJltQKTIlu7rQT6Klm_mFQO5SB6dMVlqQTFimfDIjqwQCCxD1xJiFQKu3cWQxOO0Lear5030E52zyQBACDlcXPzLLxOzzmA3xnlue0wrO6KGHVlDU_0AXLKQtUJVxQAnjz_NK6vHr9ZHHMTKWdYAFLvn5euzMnVD9tNUkywuoGWhYPeIC6fpc3H_ecTaXXx9CAETwwwyzKNdlbFq1wqRls9Q-Mva0psVCFwHOb8xqcez8M_j5kiE0T4pixPuaqPzBgLHyfRt80IH6iyCRYvXarVflfYm8odPKlIaHhpNZGnNx-1POflCo9xZNjE4aKdeTk771W6ILS_R2nQxrNeGSehcGykYNnZeZCT2zh04uBgqgCzHgmZI8o_Kuu0RLmbF14x4lk8R-nq6e4Nh_ae6iWLnVrcLW1OmJgA36cgM_TREJPFBrihb43i3Z1vIUoTKVPIi75sbPp0fDpIRrlNy2SO697N-PhzAKk5EcvBReQ1G16hIA33RxBboBICHZmzoSVym-EytWQSKVElCX_MBLgknQ6VZwiER1JylouH7D6hLCAXwL5rK__1QXTfmACwRvVZt0pBfcKwVWdmvwv8iyCmFncIy5km_qmbDA62itTQ0xst7imJvU_fSRbjASJvOKY5FiN2R8D6XGr-Cd3gJhpifMB2OHbkUBydwhwBxKu-eHltesASTeS7k_SyE-RNJ4de9EyKUVKYpZlwgapnd=w1068-h582-no?authuser=0)
+
 ## License
 [MIT License](https://github.com/LeonardoCarreraSilva/modelo-api-rest-spring-lombok/blob/master/LICENSE) © [Leonardo Carrera da Silva](https://www.linkedin.com/in/leonardo-carrera-da-silva) leonardosilva.ads@hotmail.com
 

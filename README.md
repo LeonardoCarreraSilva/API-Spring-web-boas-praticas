@@ -1,16 +1,18 @@
-# API-Spring-web-boas-praticas
+# Modelo-api-rest-spring-lombok
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+[![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg)](https://img.shields.io/github/license/LeonardoCarreraSilva/modelo-api-rest-spring-lombok)
 
-Pré requisitos para rodar o projeto
+>:rocket: Aqui você ira encontrar um modelo de API Spring, com intuito de acelerar sua codificação.
+![enter image description here](https://photos.app.goo.gl/5v1b9Q1tbnaij8N37)
+## Requisitos 
 
-  - Java JDK instalado
-  - Eclipse ou qualquer outra IDE
+ - Sprong tools ou qualquer IDE Java de sua preferencia
+ - JDK Instalado
 
-# instuções 
-
-  - Importe o projeto na sua IDE de
-  - Rode o arquivo ApiRestBoasPraticasApplication.java
-  - Abra no navegador o http://localhost:8080/ para maiores informações sobre os metodos
+## Passo a Passo
+- Importe o projeto maven
+- Aguarde o maven instalar todas as dependência 
 
 
+## License
+[MIT License](https://github.com/LeonardoCarreraSilva/modelo-api-rest-spring-lombok/blob/master/LICENSE) © [Leonardo Carrera da Silva](www.linkedin.com/in/leonardo-carrera-da-silva)
